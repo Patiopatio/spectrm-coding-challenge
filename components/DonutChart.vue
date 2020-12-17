@@ -1,5 +1,5 @@
 <template>
-  <div id="chart" class="text-left">
+  <div id="chart" class="p-4 text-left">
     <client-only>
       <apexchart
         type="donut"
@@ -30,7 +30,6 @@ export default Vue.extend({
     }
   },
   data() {
-    const self = this;
     return {
       chartOptions: {
         colors: ["#c4366f", "#85adff", "#502579"],
@@ -81,7 +80,7 @@ export default Vue.extend({
           }
         },
 
-        labels: self.labels,
+        labels: this.labels,
         chart: {
           type: "donut"
         },
@@ -104,5 +103,8 @@ export default Vue.extend({
 <style>
 #chart .apexcharts-legend-marker {
   margin-right: 8px !important;
+}
+.chart-loading {
+  height: 380px;
 }
 </style>
