@@ -23,7 +23,7 @@ The page auto-updates as you edit the file.
 - [Tailwind](https://tailwindcss.com/)
 - [Apexcharts](https://apexcharts.com/)
 
-## Deploy
+## Deploy on Vercel
 
 ## Contributing
 
