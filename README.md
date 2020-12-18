@@ -1,6 +1,6 @@
 # spectrm-coding-challenge
 
-[Live Demo]()
+[Live Demo](https://spectrm-coding-challenge-l1n2gxolh.vercel.app/)
 
 This coding challenge is a small Nuxt.js single page application showing chart widgets representing various JSON data with an option to clone the chart of one's choice.
 
@@ -24,6 +24,8 @@ The page auto-updates as you edit the file.
 - [Apexcharts](https://apexcharts.com/)
 
 ## Deploy on Vercel
+
+[deploy](https://spectrm-coding-challenge-l1n2gxolh.vercel.app/)
 
 ## Contributing
 
