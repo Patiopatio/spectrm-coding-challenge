@@ -1,15 +1,20 @@
 <template>
   <div class="container mx-auto p-2">
-    <!-- TODO put into separate headline component -->
-    <h1 class="text-5xl mb-2 md:mb-4">spectrm-challenge</h1>
+    <h1 class="text-5xl mb-2 md:mb-4 text-center">spectrm-challenge</h1>
+
+    <img
+      src="~assets/challenge.gif"
+      alt="Challenge accepted"
+      class="mx-auto w-full md:w-72 rounded-lg overflow-hidden mb-2"
+    />
 
     <div v-if="profiles" class="flex flex-col xl:flex-row xl:space-x-2">
-      <div v-for="(profile, index) in profiles" :key="index" class="w-1/2">
+      <div v-for="(profile, index) in profiles" :key="index" class="flex-1">
         <ChartCard
           :title="profile.title"
           :total-label="profile.totalLabel"
           :data="profile.original"
-          class="mb-4"
+          class="mb-2"
           :can-clone="!profile.clone"
           @clone="onClone"
         />
@@ -30,7 +35,6 @@ import data from "~/static/data.json";
 
 export default Vue.extend({
   async asyncData({ req, isServer, params, store }) {
-    console.log(data);
     const profiles = data.profiles.map((profile: any) => {
       return {
         title: profile.title,
@@ -43,21 +47,6 @@ export default Vue.extend({
       };
     });
     return { profiles };
-    // const data = {
-    //   charts: null,
-    // };
-
-    // if (process.server) {
-    //   data.charts = JSON.parse(
-    //     require("fs").readFileSync("../static/data.json", "utf8")
-    //   );
-    // } else {
-    //   // data.charts = await axios.get('/data.json').then(res => res.data)
-    // }
-
-    // console.log(data);
-
-    // return data;
   },
   data() {
     return {

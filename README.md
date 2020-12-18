@@ -3,6 +3,8 @@
 [Live Demo](https://spectrm-coding-challenge-l1n2gxolh.vercel.app/)
 
 This coding challenge is a small Nuxt.js single page application showing chart widgets representing various JSON data with an option to clone the chart of one's choice.
+Focus of this task is to recreate the design in form of a image as close as possible.
+This app is built with tailwindcss and mobile first in mind (Feel free to play around).
 
 ## Run locally
 
@@ -41,4 +43,9 @@ Please refer to the project's style and contribution guidelines for submitting p
 
 Since this challenge is timely limited, there are some open todos.
 
--
+- Mock API endpoint
+- Loading animation when apexchart is not yet drawn
+- scoped css for every css class (use scss, with BEM)
+- chart hover label unified (font size, color)
+- use correct font from design
+- create jest tests

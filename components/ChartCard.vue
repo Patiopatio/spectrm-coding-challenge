@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg rounded-md bg-white">
+  <div class="chart-card shadow-lg rounded-md bg-white">
     <div class="flex flex-row justify-between px-4 pt-4">
       <h1
         class="text-lg font-sans font-semibold border-b-2 border-dotted border-gray-500"
@@ -47,4 +47,8 @@ export default Vue.extend({
 });
 </script>
 
-<style></style>
+<style>
+.chart-card {
+  min-height: 250px;
+}
+</style>
