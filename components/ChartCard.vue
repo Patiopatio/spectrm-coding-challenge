@@ -34,14 +34,20 @@ export default Vue.extend({
       type: Object,
       required: true
     },
-    canClone: {
-      type: Boolean
+    index: {
+      type: Number
     }
+  },
+  data() {
+    return {
+      canClone: true
+    };
   },
   methods: {
     onClone() {
       // @ts-ignore
-      this.$emit("clone", this.title);
+      this.$emit("clone", this.index);
+      this.canClone = false;
     }
   }
 });

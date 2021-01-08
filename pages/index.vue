@@ -8,21 +8,20 @@
       class="mx-auto w-full md:w-72 rounded-lg overflow-hidden mb-2"
     />
 
-    <div v-if="profiles" class="flex flex-col xl:flex-row xl:space-x-2">
-      <div v-for="(profile, index) in profiles" :key="index" class="flex-1">
+    <div v-if="profiles" class="flex flex-col xl:flex-row flex-wrap">
+      <div
+        v-for="(profile, index) in profiles"
+        :key="index"
+        class="card"
+        :class="{ 'xl:mx-2': index % 3 == 1 }"
+      >
         <ChartCard
           :title="profile.title"
           :total-label="profile.totalLabel"
           :data="profile.original"
           class="mb-2"
-          :can-clone="!profile.clone"
           @clone="onClone"
-        />
-        <ChartCard
-          v-if="profile.clone"
-          :title="profile.title + ' clone'"
-          :total-label="profile.totalLabel"
-          :data="profile.clone"
+          :index="index"
         />
       </div>
     </div>
@@ -42,8 +41,7 @@ export default Vue.extend({
         original: {
           series: profile.data.map((seriesLabel: any) => seriesLabel.value),
           labels: profile.data.map((seriesLabel: any) => seriesLabel.label)
-        },
-        clone: null
+        }
       };
     });
     return { profiles };
@@ -54,23 +52,23 @@ export default Vue.extend({
     };
   },
   methods: {
-    onClone(profileTitle: string) {
+    onClone(index: number) {
       // @ts-ignore
-      const index = this.profiles.findIndex(
-        (profile: any) => profile.title === profileTitle
-      );
+      const profile = JSON.parse(JSON.stringify(this.profiles[index]));
       // @ts-ignore
-      const profile = this.profiles[index];
-      // make deep copies
-      profile.clone = {
-        series: JSON.parse(JSON.stringify(profile.original.series)),
-        labels: JSON.parse(JSON.stringify(profile.original.labels))
-      };
-      // @ts-ignore
-      this.profiles[index] = profile;
+      this.profiles.push(profile);
     }
   }
 });
 </script>
 
-<style></style>
+<style>
+.card  {
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .card {
+    flex: 0 32%;
+  }
+}
+</style>
